@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.kata.spring.boot_security.demo.models.User;
 import ru.kata.spring.boot_security.demo.services.UserService;
 
 import java.security.Principal;
@@ -21,8 +20,7 @@ public class UserController {
 
     @GetMapping({"/", ""})
     public String userInfo(Principal principal, Model model) {
-        User user = userService.getUserByEmail(principal.getName());
-        model.addAttribute("user", user);
+        model.addAttribute("user", userService.getUserByEmail(principal.getName()));
         return "user-info";
     }
 }
