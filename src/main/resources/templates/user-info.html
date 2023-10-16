@@ -11,27 +11,27 @@
     <h3>User Info</h3>
     <table border="1" cellpadding="8">
         <tr>
-            <td>ID:</td>
+            <td>ID</td>
             <td th:text="${user.id}">ID</td>
         </tr>
         <tr>
-            <td>First name:</td>
+            <td>First name</td>
             <td th:text="${user.firstName}">First name</td>
         </tr>
         <tr>
-            <td>Last name:</td>
+            <td>Last name</td>
             <td th:text="${user.lastName}">Last name</td>
         </tr>
         <tr>
-            <td>Age:</td>
+            <td>Age</td>
             <td th:text="${user.age}">Age</td>
         </tr>
         <tr>
-            <td>E-mail:</td>
+            <td>E-mail</td>
             <td th:text="${user.email}">E-mail</td>
         </tr>
         <tr>
-            <td>Roles:</td>
+            <td>Roles</td>
             <td th:text="${#strings.setJoin(user.roles, ', ')}">Roles</td>
         </tr>
     </table>
