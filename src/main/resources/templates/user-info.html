@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>User Info</title>
+</head>
+<body>
+<div align="center">
+    <h3>User Info</h3>
+    <table border="1" cellpadding="8">
+        <tr>
+            <td>ID:</td>
+            <td><div th:text="${user.id}">id</div></td>
+        </tr>
+        <tr>
+            <td>First name:</td>
+            <td><div th:text="${user.firstName}">id</div></td>
+        </tr>
+        <tr>
+            <td>Last name:</td>
+            <td><div th:text="${user.lastName}">id</div></td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><div th:text="${user.age}">id</div></td>
+        </tr>
+        <tr>
+            <td>E-mail:</td>
+            <td><div th:text="${user.email}">id</div></td>
+        </tr>
+        <tr>
+            <td>Roles:</td>
+            <td><div th:text="${#strings.setJoin(user.roles, ', ')}">id</div></td>
+        </tr>
+    </table>
+    <br>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout" />
+    </form>
+</div>
+</body>
+</html>

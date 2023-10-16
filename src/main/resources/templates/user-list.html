@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>User List</title>
+</head>
+<body>
+<div align="center">
+    <h3>User List</h3>
+    <table border="1" cellpadding="8">
+        <tr>
+            <th><b>ID</b></th>
+            <th><b>First name</b></th>
+            <th><b>Last name</b></th>
+            <th><b>Age</b></th>
+            <th><b>E-mail</b></th>
+            <th><b>Roles</b></th>
+            <th><b>Actions</b></th>
+        </tr>
+        <th:block th:b>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}">ID</td>
+                <td th:text="${user.firstName}">First name</td>
+                <td th:text="${user.lastName}">Last name</td>
+                <td th:text="${user.age}">Age</td>
+                <td th:text="${user.email}">E-mail</td>
+                <td th:text="${#strings.setJoin(user.roles, ', ')}">Roles</td>
+                <td>
+                    <a th:href="@{/admin/{id}/edit(id=${user.id})}">
+                        <button>Edit</button></a>
+                    <a th:href="@{/admin/{id}/delete(id=${user.id})}">
+                        <button>Delete</button></a>
+                </td>
+            </tr>
+        </th:block>
+    </table>
+    <br>
+    <input type="button" value="Add new user"
+           onclick="window.location.href = '/admin/add'"/>
+    <br><br><br>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout" />
+    </form>
+</div>
+</body>
+</html>
