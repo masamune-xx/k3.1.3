@@ -34,13 +34,14 @@
             </tr>
         </table>
         <br>
-            <label>Roles:
-                <input type="checkbox" name="roles"
-                       th:each="role : ${roles}"
-                       th:text="${role.name}"
-                       th:value="${role.id}"
-                       th:field="*{roles}"/>
-            </label>
+        <p>Roles: </p>
+        <label>Roles:
+            <input type="checkbox" name="roles"
+                   th:each="role : ${roles}"
+                   th:text="${role.name}"
+                   th:value="${role.id}"
+                   th:field="*{roles}"/>
+        </label>
         <br><br>
         <button type="submit">Save</button>
     </form>
