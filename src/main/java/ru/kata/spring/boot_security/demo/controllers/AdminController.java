@@ -8,7 +8,7 @@ import ru.kata.spring.boot_security.demo.models.User;
 import ru.kata.spring.boot_security.demo.services.RoleService;
 import ru.kata.spring.boot_security.demo.services.UserService;
 
-import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -42,10 +42,10 @@ public class AdminController {
 
     @PostMapping("/save")
     public String userSave(@ModelAttribute("user") User user,
-                           @RequestParam("roles") String[] roles) {
-        user.setRoles(Arrays
-                .stream(roles)
-                .map(r -> roleService.getRoleByName(r))
+                           @RequestParam("roleIds") List<Integer> roleIds) {
+        user.setRoles(roleIds
+                .stream()
+                .map(roleService::getRoleById)
                 .collect(Collectors.toSet()));
         userService.saveUser(user);
         return "redirect:/admin";

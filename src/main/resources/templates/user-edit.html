@@ -34,20 +34,19 @@
             </tr>
         </table>
         <br>
-        <p>Roles: </p>
-        <label>Roles:
-            <input type="checkbox" name="roles"
+        <p>Roles:</p>
+        <label>
+            <input type="checkbox" name="roleIds"
                    th:each="role : ${roles}"
                    th:text="${role.name}"
-                   th:value="${role.id}"
-                   th:field="*{roles}"/>
+                   th:value="${role.id}"/>
         </label>
         <br><br>
         <button type="submit">Save</button>
     </form>
     <br><br><br>
     <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Logout" />
+        <input type="submit" value="Logout"/>
     </form>
 </div>
 </body>
